@@ -1,9 +1,0 @@
-{
-  "globs": ["**/*.md", "!node_modules/**"],
-  "config": {
-    "default": true,
-    "MD013": false,
-    "MD024": { "siblings_only": true },
-    "MD060": false
-  }
-}

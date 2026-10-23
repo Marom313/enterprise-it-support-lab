@@ -4,12 +4,15 @@
   "private": true,
   "description": "Validation tooling for a fictional Windows IT support portfolio lab",
   "scripts": {
-    "lint:md": "markdownlint-cli2",
+    "lint:md": "node tests/lint-markdown.mjs",
     "validate": "node tests/validate.mjs",
     "test": "npm run validate && npm run lint:md"
   },
   "devDependencies": {
-    "markdownlint-cli2": "0.18.1",
-    "yaml": "2.8.1"
+    "markdownlint": "0.42.0",
+    "yaml": "2.9.1"
+  },
+  "overrides": {
+    "katex": "0.18.2"
   }
 }
