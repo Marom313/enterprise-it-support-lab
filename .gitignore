@@ -1,0 +1,17 @@
+outputs/
+evidence/private/
+node_modules/
+.env
+*.log
+*.iso
+*.wim
+*.esd
+*.vhd
+*.vhdx
+*.pfx
+*.key
+*.pem
+*.zip
+*.evtx
+*.clixml
+.DS_Store

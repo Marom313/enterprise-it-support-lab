@@ -1,0 +1,11 @@
+{
+  "domain": "corp.example.test",
+  "baseDN": "DC=corp,DC=example,DC=test",
+  "domainController": "DC01.corp.example.test",
+  "dnsServer": "192.168.56.10",
+  "subnet": "192.168.56.0/24",
+  "gateway": "192.168.56.1",
+  "requiredServices": ["Dnscache", "EventLog", "Winmgmt"],
+  "requiredApplications": ["7-Zip"],
+  "minimumFreeGB": 20
+}

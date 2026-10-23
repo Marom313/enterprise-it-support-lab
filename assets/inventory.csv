@@ -1,0 +1,5 @@
+AssetID,SerialNumber,ComputerName,AssignedUser,OperatingSystem,DeviceStatus,WarrantyStatus,LastCheckIn,LifecycleStage
+LAB-001,FICTIONAL-SN-001,WS01,alex.river,Windows 11 Pro,Assigned,In warranty,2026-10-01T09:00:00Z,In service
+LAB-002,FICTIONAL-SN-002,WS02,taylor.reed,Windows 11 Pro,Assigned,In warranty,2026-10-01T09:05:00Z,In service
+LAB-003,FICTIONAL-SN-003,WS03,,Windows 11 Pro,Available,In warranty,2026-10-01T08:30:00Z,Stock
+LAB-004,FICTIONAL-SN-004,WS04,,Windows 11 Pro,Quarantined,Expired,2026-09-25T15:00:00Z,Awaiting disposal

@@ -1,0 +1,15 @@
+{
+  "name": "enterprise-it-support-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Validation tooling for a fictional Windows IT support portfolio lab",
+  "scripts": {
+    "lint:md": "markdownlint-cli2",
+    "validate": "node tests/validate.mjs",
+    "test": "npm run validate && npm run lint:md"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "0.18.1",
+    "yaml": "2.8.1"
+  }
+}
