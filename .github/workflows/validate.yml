@@ -7,9 +7,10 @@ permissions:
 jobs:
   content:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
           cache: npm
@@ -27,19 +28,27 @@ jobs:
         run: ./tests/Test-Behavior.ps1
   windows-compatibility:
     runs-on: windows-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Download pinned analyzer without legacy NuGet bootstrap
+        shell: pwsh
+        run: |
+          $archive = Join-Path $env:RUNNER_TEMP 'PSScriptAnalyzer.zip'
+          Invoke-WebRequest https://www.powershellgallery.com/api/v2/package/PSScriptAnalyzer/1.24.0 -OutFile $archive
+          $expected = 'E86C97D44BB1BC8A1DE35E753B85EA1D938F6F9F881639A181507E079BCA4556'
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $expected) { throw 'Analyzer checksum mismatch' }
+          Expand-Archive $archive (Join-Path $env:RUNNER_TEMP 'PSScriptAnalyzer') -Force
       - name: Windows PowerShell 5.1 validation
         shell: powershell
         run: |
-          Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
-          Install-Module PSScriptAnalyzer -RequiredVersion 1.24.0 -Force -Scope CurrentUser
-          ./tests/Test-PowerShell.ps1
+          ./tests/Test-PowerShell.ps1 -ModulePath (Join-Path $env:RUNNER_TEMP 'PSScriptAnalyzer/PSScriptAnalyzer.psd1')
           ./tests/Test-Behavior.ps1
   secrets:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
       - name: Scan Git history with Gitleaks
