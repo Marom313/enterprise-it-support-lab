@@ -46,6 +46,7 @@ npm test
 ```
 
 PSScriptAnalyzer must be installed separately; see [setup](setup-guide.md).
+
 ## Recorded local results — 23 October 2026
 
 Windows PowerShell 5.1 and Node.js 24.19.0 were available on the authoring host.
@@ -67,5 +68,8 @@ deployment validator: those parameters are consumed in synchronously invoked pro
 scriptblocks, which the rule does not follow. No blanket unused-parameter rule
 exclusion is applied. Formatting/line-length choices are not security test results.
 
-GitHub Actions and Gitleaks results must be checked in the actual run; the presence
-of their workflow definitions does not by itself establish success.
+Local Gitleaks 8.24.2 scanned the initial six commits with no leaks found. The
+official Windows archive's SHA-256 matched the release checksum. GitHub's first
+Gitleaks job also passed. The first content CI run identified a missing blank line
+in this record added after initial lint; it was corrected and the checks rerun.
+Refer to the latest actual Actions run for the final cross-platform status.
