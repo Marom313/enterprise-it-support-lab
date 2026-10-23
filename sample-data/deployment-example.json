@@ -1,0 +1,11 @@
+{
+  "SchemaVersion": 1,
+  "ComputerName": "WS01",
+  "CollectedAt": "2026-10-01T09:00:00Z",
+  "EvidenceType": "Fictional example, not a recorded deployment",
+  "Checks": [
+    { "Name": "ComputerName", "Status": "Pass", "Detail": "WS01" },
+    { "Name": "DomainMembership", "Status": "Fail", "Detail": "WORKGROUP; pending join" },
+    { "Name": "WindowsUpdateEvidence", "Status": "Review", "Detail": "Run approved update scan manually" }
+  ]
+}
